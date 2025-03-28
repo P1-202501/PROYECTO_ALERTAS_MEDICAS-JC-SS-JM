@@ -2,7 +2,6 @@
 ###✨ Proyecto de Monitoreo de Signos Vitales ✨###
 
 #"👥 Integrantes del Proyecto
-
 👨‍💻 Jacobo Minjarez
 
 👨‍💻 Jesús Carrillo
@@ -10,6 +9,10 @@
 👩‍💻 Sara Sánchez
 
 🌐 Introducción
+
+
+
+____________________________________________________________________________________________
 
 El monitoreo de signos vitales es clave en la salud, ya que permite evaluar en tiempo real el estado fisiológico del paciente. Algunos de los parámetros esenciales incluyen:
 
@@ -22,6 +25,11 @@ El monitoreo de signos vitales es clave en la salud, ya que permite evaluar en t
 🧐 Temperatura Corporal
 
 Este proyecto desarrollará un software de simulación para visualizar y analizar estos datos de forma dinámica, permitiendo a los usuarios observar variaciones en los signos vitales en distintos escenarios clínicos.
+
+
+
+____________________________________________________________________________________________
+
 
 ⚙️ Funcionamiento
 
@@ -46,6 +54,11 @@ Observar los valores de sus signos vitales en la pantalla.
 Seguir las indicaciones del personal de salud en caso de recibir una alerta.
 
 Consultar con un especialista si los valores registrados presentan irregularidades frecuentes.
+
+
+
+____________________________________________________________________________________________
+
 
 🔍 Conceptos Clave
 
