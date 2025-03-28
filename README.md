@@ -90,6 +90,7 @@ El principal desafío de este proyecto es lograr una simulación realista y efic
 
 ⚙️ Configuración personalizada de parámetros como valores críticos y frecuencia de actualización.
 
+
 ⚖️ Detección de anomalías para facilitar la toma de decisiones clínicas.
 
 ⚛️ Manejo de errores para evitar interrupciones en la ejecución del software.
