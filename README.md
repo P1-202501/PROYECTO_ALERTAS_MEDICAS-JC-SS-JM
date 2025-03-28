@@ -95,6 +95,10 @@ El principal desafío de este proyecto es lograr una simulación realista y efic
 
 ⚛️ Manejo de errores para evitar interrupciones en la ejecución del software.
 
+
+
+____________________________________________________________________________________________
+
 📖 Referencias Bibliográficas
 
 REFERENCIAS BIBLIOGRAFICAS
