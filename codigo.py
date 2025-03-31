@@ -1,57 +1,44 @@
+import time
 import random
 
-# Función para obtener un valor aleatorio de un signo vital
-def obtener_signo_vital(tipo):
-    """Simula la medición de un signo vital dependiendo del tipo"""
-    valores = {
-        'frecuencia_cardiaca': random.randint(60, 100),
-        'presion_arterial': (random.randint(90, 120), random.randint(60, 80)),
-        'temperatura': round(random.uniform(36.0, 37.5), 1),
-        'frecuencia_respiratoria': random.randint(12, 20)
-    }
-    return valores.get(tipo, None)
+UMBRAL_MOVIMIENTO = 0.5
+FRECUENCIA_CARDIACA_MINIMA = 60
+FRECUENCIA_CARDIACA_MAXIMA = 100
 
-# Función para evaluar si un signo vital está dentro de los rangos normales
-def evaluar_signo_vital(tipo, valor):
-    """Evalúa si el signo vital está dentro de los rangos normales"""
-    limites = {
-        'frecuencia_cardiaca': (60, 100),
-        'presion_arterial': ((90, 120), (60, 80)),
-        'temperatura': (36.0, 37.5),
-        'frecuencia_respiratoria': (12, 20)
-    }
-    
-    # Evaluar la presión arterial de forma separada debido a su formato (sistólica/diastólica)
-    if tipo == 'presion_arterial':
-        sistolica, diastolica = valor
-        return limites[tipo][0][0] <= sistolica <= limites[tipo][0][1] and limites[tipo][1][0] <= diastolica <= limites[tipo][1][1]
-    else:
-        return limites[tipo][0] <= valor <= limites[tipo][1]
+def inicializar_paciente():
+    pass
+def simular_lecturas():
+    pass
 
-# Función principal para monitorear signos vitales
-def monitorear_signos():
-    """Realiza la medición y evaluación de signos vitales"""
-    signos = ['frecuencia_cardiaca', 'presion_arterial', 'temperatura', 'frecuencia_respiratoria']
-    datos_paciente = {}
-    
-    for signo in signos:
-        try:
-            # Obtener el valor del signo vital
-            valor = obtener_signo_vital(signo)
-            datos_paciente[signo] = valor
-            
-            # Evaluar si el signo vital está en el rango normal
-            estado = "Normal" if evaluar_signo_vital(signo, valor) else "Fuera de rango"
-            
-            # Imprimir el resultado del monitoreo
-            print(f"{signo.replace('_', ' ').capitalize()}: {valor} -> Estado: {estado}")
-        except Exception as e:
-            # Capturar errores en la obtención de signos vitales
-            print(f"Error al obtener {signo}: {e}")
-    
-    return datos_paciente
+ # Verifica si el movimiento está dentro del umbral permitido
 
-# Punto de entrada principal del programa
-if __name__ == "__main__":
-    print("--- Monitoreo de signos vitales ---")
-    datos = monitorear_signos()
+def validar_movimiento(movimiento):
+    return movimiento <= UMBRAL_MOVIMIENTO
+ 
+# Analiza la frecuencia cardíaca y detecta anomalías
+
+def analizar_ritmo(paciente):
+    if paciente['movimiento_actual'] is None or paciente['ritmo_actual'] is None:
+        return
+   
+    if not validar_movimiento(paciente['movimiento_actual']):
+        paciente['alertas'].append("Afectado por movimiento - Lectura invalidada")
+        return
+   
+    if paciente['ritmo_actual'] < FRECUENCIA_CARDIACA_MINIMA:
+        paciente['alertas'].append(f"Bradicardia crítica: {paciente['ritmo_actual']:.1f} bpm")
+    elif paciente['ritmo_actual'] > FRECUENCIA_CARDIACA_MAXIMA:
+        paciente['alertas'].append(f"Taquicardia alarmante: {paciente['ritmo_actual']:.1f} bpm")
+
+# Inicializa el archivo de registro .log para almacenar las lecturas
+def iniciar_registro():
+    try:
+        with open('registro_UCI.log', 'w', encoding='utf-8') as registro:
+            registro.write("Registro de Monitoreo UCI/UCE - Protocolo NCC MERP\n")
+    except Exception as e:
+        print(f"Error en simulación: {str(e)}")
+
+def registro_lectura():
+    pass
+def main():
+    pass
