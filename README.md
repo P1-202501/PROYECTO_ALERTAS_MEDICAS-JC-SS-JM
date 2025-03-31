@@ -1,4 +1,4 @@
-# PROYECTO_ALERTAS_MEDICAS-JC-SS-JM
+# MONITOREO_DE_SIGNOS_VITALES
 ###✨ Proyecto de Monitoreo de Signos Vitales ✨###
 
 #"👥 Integrantes del Proyecto
