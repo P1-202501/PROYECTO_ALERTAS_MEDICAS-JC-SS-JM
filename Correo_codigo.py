@@ -11,7 +11,7 @@ EMAIL_PASSWORD = "ebrgvopmssjgwmsl"  # Contraseña de aplicación generada en Gm
 mensaje = MIMEText("Esto es una prueba")
 mensaje["Subject"] = "Prueba de correo"
 mensaje["From"] = EMAIL_USER
-mensaje["To"] = "CARRILLO.JESUS@UCES.EDU.CO" ; "sanchezs.sara@uces.edu.co" ;
+mensaje["To"] = "CARRILLO.JESUS@UCES.EDU.CO" ; "sanchezs.sara@uces.edu.co" 
 
 try:
     print("🔗 Conectando al servidor SMTP...")
@@ -19,7 +19,7 @@ try:
     conexion.login(EMAIL_USER, EMAIL_PASSWORD)
 
     print("📩 Enviando correo...")
-    conexion.sendmail(EMAIL_USER, "CARRILLO.JESUS@UCES.EDU.CO", mensaje.as_string())
+    conexion.sendmail(EMAIL_USER, "sanchezs.sara@uces.edu.co" , mensaje.as_string())
     print("✅ Correo enviado correctamente")
 except smtplib.SMTPAuthenticationError as e:
     print(f"❌ Error de autenticación: {e}")
