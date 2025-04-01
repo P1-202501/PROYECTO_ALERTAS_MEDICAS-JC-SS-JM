@@ -18,7 +18,7 @@ try:
     conexion = smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT)  # Conexión segura con SSL
     conexion.login(EMAIL_USER, EMAIL_PASSWORD)
 
-    print("📩 Enviando correo...")
+    print("Enviando correo espere porfavor...")
     conexion.sendmail(EMAIL_USER, "sanchezs.sara@uces.edu.co" , mensaje.as_string())
     print("✅ Correo enviado correctamente")
 except smtplib.SMTPAuthenticationError as e:
