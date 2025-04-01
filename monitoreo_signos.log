@@ -1,0 +1,100 @@
+2025-04-01 14:19:26 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 14:19:29 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:19:41 - INFO - Temperatura - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:19:46 - INFO - Frecuencia respiratoria - Estado: \u26a0\ufe0f Fuera de rango, Recomendación: Si su respiración es irregular, busque atención médica si persiste.
+2025-04-01 14:19:46 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 14:30:08 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 14:30:12 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:30:28 - INFO - Temperatura - Estado: \u26a0\ufe0f Fuera de rango, Recomendación: Si tiene fiebre o temperatura baja, consulte a un médico.
+2025-04-01 14:30:33 - INFO - Frecuencia respiratoria - Estado: \u26a0\ufe0f Fuera de rango, Recomendación: Si su respiración es irregular, busque atención médica si persiste.
+2025-04-01 14:30:33 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 14:35:26 - INFO - Monitoreo iniciado para: ss2307647@gmail.com
+2025-04-01 14:35:30 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:35:44 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:38:09 - INFO - Temperatura - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:39:44 - INFO - Frecuencia respiratoria - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:39:44 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 14:44:36 - INFO - Monitoreo iniciado para: ss2307647@gmail.com
+2025-04-01 14:44:42 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:47:04 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:47:13 - INFO - Frecuencia respiratoria - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 14:47:13 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 14:47:26 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 14:54:35 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 14:54:39 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 14:54:39 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:54:44 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=70
+2025-04-01 14:54:44 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:54:51 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 14:54:51 - INFO - Temperatura - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:56:57 - INFO - Se ingresó el valor para frecuencia_respiratoria: 12.0
+2025-04-01 14:56:57 - INFO - Frecuencia respiratoria - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:56:57 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 14:56:57 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:56:57 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:56:57 - INFO - Temperatura - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:56:57 - INFO - Frecuencia respiratoria - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:57:45 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 14:57:54 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 14:57:54 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:58:00 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=60
+2025-04-01 14:58:00 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:58:05 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 14:58:05 - INFO - Temperatura - Estado: Anómalo, Recomendación: Si tiene fiebre o temperatura baja, beba líquidos y vigile los síntomas. Consulte a un médico si persiste.
+2025-04-01 14:58:10 - INFO - Se ingresó el valor para frecuencia_respiratoria: 2.0
+2025-04-01 14:58:10 - WARNING - El valor para frecuencia_respiratoria (2.0) está fuera de rango.
+2025-04-01 14:58:10 - INFO - Frecuencia respiratoria - Estado: Anómalo, Recomendación: Si su frecuencia respiratoria es irregular, relájese y respire profundamente. Consulte si presenta dificultad respiratoria.
+2025-04-01 14:58:10 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 14:58:10 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:58:10 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien, continúe con su rutina.
+2025-04-01 14:58:10 - INFO - Temperatura - Estado: Anómalo, Recomendación: Si tiene fiebre o temperatura baja, beba líquidos y vigile los síntomas. Consulte a un médico si persiste.
+2025-04-01 14:58:10 - INFO - Frecuencia respiratoria - Estado: Anómalo, Recomendación: Si su frecuencia respiratoria es irregular, relájese y respire profundamente. Consulte si presenta dificultad respiratoria.
+2025-04-01 15:02:15 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:02:28 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 15:02:31 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=90
+2025-04-01 15:02:31 - WARNING - La presión diastólica 90 está fuera de rango.
+2025-04-01 15:02:37 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 15:04:12 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:04:15 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 15:04:18 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=90
+2025-04-01 15:04:21 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 15:05:34 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:05:36 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 15:05:39 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=90
+2025-04-01 15:05:41 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 15:07:08 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:07:10 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 15:07:13 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=90
+2025-04-01 15:07:15 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 15:08:43 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:08:48 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 15:08:52 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=90
+2025-04-01 15:08:54 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 15:10:29 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:10:32 - INFO - Se ingresó el valor para frecuencia_cardiaca: 100.0
+2025-04-01 15:10:35 - INFO - Se ingresaron valores para presion_arterial: Sistólica=90, Diastólica=90
+2025-04-01 15:10:37 - INFO - Se ingresó el valor para temperatura: 40.0
+2025-04-01 15:10:46 - INFO - Se ingresó el valor para frecuencia_respiratoria: 80.0
+2025-04-01 15:10:46 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 15:28:26 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:28:29 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 15:29:17 - INFO - Frecuencia respiratoria - Estado: \u26a0\ufe0f Fuera de rango, Recomendación: Si su respiración es irregular, busque atención médica si persiste.
+2025-04-01 15:29:17 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 15:38:18 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:38:20 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 15:38:34 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 15:38:37 - INFO - Temperatura - Estado: \u26a0\ufe0f Anomalía, Recomendación: Si tiene fiebre o temperatura baja, consulte a un médico.
+2025-04-01 15:38:45 - INFO - Frecuencia respiratoria - Estado: \u26a0\ufe0f Anomalía, Recomendación: Si su respiración es irregular, busque atención médica si persiste.
+2025-04-01 15:38:45 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 15:39:33 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:41:01 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 15:41:19 - INFO - Presion arterial - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 15:41:23 - INFO - Temperatura - Estado: \u26a0\ufe0f Anomalía, Recomendación: Si tiene fiebre o temperatura baja, consulte a un médico.
+2025-04-01 15:41:28 - INFO - Frecuencia respiratoria - Estado: \u26a0\ufe0f Anomalía, Recomendación: Si su respiración es irregular, busque atención médica si persiste.
+2025-04-01 15:41:28 - INFO - Finalización del monitoreo de signos vitales.
+2025-04-01 15:41:41 - INFO - Inicio del monitoreo de signos vitales.
+2025-04-01 15:41:44 - INFO - Frecuencia cardiaca - Estado: Normal, Recomendación: Todo está bien.
+2025-04-01 15:42:59 - INFO - Presion arterial - Estado: \u26a0\ufe0f Anomalía, Recomendación: Si su presión arterial está fuera de los rangos normales, consulte a un especialista.
+2025-04-01 15:43:11 - INFO - Temperatura - Estado: \u26a0\ufe0f Anomalía, Recomendación: Si tiene fiebre o temperatura baja, consulte a un médico.
+2025-04-01 15:43:17 - INFO - Frecuencia respiratoria - Estado: \u26a0\ufe0f Anomalía, Recomendación: Si su respiración es irregular, busque atención médica si persiste.
+2025-04-01 15:43:17 - INFO - Finalización del monitoreo de signos vitales.
