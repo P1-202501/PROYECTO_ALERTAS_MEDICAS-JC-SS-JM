@@ -17,7 +17,7 @@ EMAIL_USER = "jezucarrillo120@gmail.com"
 EMAIL_PASSWORD = "ebrgvopmssjgwmsl"  # Usa una contraseña de aplicación segura
 
 # Lista de destinatarios
-destinatarios = ["CARRILLO.JESUS@UCES.EDU.CO", "sanchezs.sara@uces.edu.co"]
+destinatarios = ["CARRILLO.JESUS@UCES.EDU.CO", "sanchezs.sara@uces.edu.co", "jpalzate@ces.edu.co"]
 
 # Función para enviar alertas médicas por correo
 def enviar_alerta(alertas):
