@@ -126,3 +126,40 @@ def monitorear():
             cantidad_alertas += 1
             logging.warning(f"Alerta detectada: {signo} - {mensaje}")
 
+ # Guardar registro para sistolica y diastolica y me devuelve una tupla con dos valores
+        if signo == "presion_arterial":
+            registros.append({  
+                "signo": "presión arterial",
+                "valor": f"{dato[0]}/{dato[1]}",
+                "estado": "normal" if correcto else "anormal",
+                "mensaje": mensaje
+            })
+        else: #Guardo el registro para los otros signos
+            registros.append({  
+                "signo": signo.replace("_", " ").capitalize(),
+                "valor": dato,
+                "estado": "normal" if correcto else "anormal",
+                "mensaje": mensaje
+            })
+
+    # Clasificación de riesgo según cuántas alertas hubo.
+    if cantidad_alertas == 0:
+        riesgo = "sin riesgo"
+    elif cantidad_alertas == 1:
+        riesgo = "riesgo leve"
+    elif cantidad_alertas == 2:
+        riesgo = "riesgo moderado"
+    else:
+        riesgo = "riesgo alto"
+
+    print(f"\n Clasificación de riesgo del paciente: {riesgo}")
+    logging.info(f"Clasificación de riesgo: {riesgo}")
+
+    # Crear DataFrame
+    df = pd.DataFrame(registros)
+    df["paciente"] = nombre
+    df["fecha"] = fecha
+    df["riesgo"] = riesgo
+
+    print("\n Resultados del monitoreo:\n")
+    print(df)
