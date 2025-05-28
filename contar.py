@@ -1,33 +1,4 @@
-[2:41 pm, 21/05/2025] sara: import smtplib
-from email.mime.text import MIMEText
-from datetime import datetime
-import pandas as pd
-import os #Sirve para leer variables del sistema (como contraseñas).
-import logging  
-
-# Configuración de logging
-logging.basicConfig(
-    filename='registro_ejecucion.log',
-    level=logging.DEBUG,  # Captura todos los niveles (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S' #Define cómo se muestra la fecha y hora
-)
-
-# Configuración del correo
-correo_emisor = "sarasanchezz1029721608@gmail.com"
-contraseña = os.getenv("EMAIL_PASSWORD") #La contraseña se lee desde el sistema con os.getenv()
-
-if not contraseña:
-    logging.critical("No se encontró la variable de entorno EMAIL_PASSWOR…
-[2:41 pm, 21/05/2025] sara: ahí esta el codigo
-[2:41 pm, 21/05/2025] sara: pide el correo a los usuarios y les manda las alertas bien
-[2:42 pm, 21/05/2025] sara: ya no hay problema con eso
-[2:42 pm, 21/05/2025] sara: y crea dos archivos el del dataframe y el del .log
-[2:42 pm, 21/05/2025] sara: por si lo quieren probar
-[2:47 pm, 21/05/2025] :): comprendo
-[1:37 pm, 24/05/2025] sara: si alguno quiere puede subir este commit a su feature, hacerle el merge con dev para que la profesora vea que aja
-[1:37 pm, 24/05/2025] sara: igual ya le estoy agregando más cosas
-[1:38 pm, 24/05/2025] sara: import smtplib
+import smtplib
 from email.mime.text import MIMEText
 from datetime import datetime
 import pandas as pd
