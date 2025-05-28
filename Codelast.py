@@ -44,4 +44,18 @@ def enviar_correo(alertas, correo_receptor):
         logging.info(f"Correo enviado con éxito a {correo_receptor}")
         print("Correo enviado con éxito")
 
-        
+    # Manejo de excepciones
+     
+    except smtplib.SMTPAuthenticationError:
+        logging.error("Error de autenticación. Verifica la contraseña.")
+        print("error de autenticación. Verifica la contraseña.")
+    except smtplib.SMTPRecipientsRefused:
+        logging.error(f"El correo del destinatario {correo_receptor} fue rechazado.")
+        print("el correo del destinatario fue rechazado.")
+    except smtplib.SMTPException as e: #Captura cualquier otro error relacionado con SMTP que no sea autenticación ni rechazo de destinatario.
+        logging.error(f"Error SMTP: {e}") #as e para guardar el mensaje y luego lo muestra y lo guarda en el log.
+        print(f"error SMTP: {e}")
+    except Exception as e: #puede ser cualquier excepción
+        logging.critical(f"Error inesperado: {e}")
+        print(f" error inesperado: {e}")
+
