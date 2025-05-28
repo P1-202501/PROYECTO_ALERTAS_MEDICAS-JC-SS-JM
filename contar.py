@@ -1,0 +1,263 @@
+[2:41 pm, 21/05/2025] sara: import smtplib
+from email.mime.text import MIMEText
+from datetime import datetime
+import pandas as pd
+import os #Sirve para leer variables del sistema (como contraseñas).
+import logging  
+
+# Configuración de logging
+logging.basicConfig(
+    filename='registro_ejecucion.log',
+    level=logging.DEBUG,  # Captura todos los niveles (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S' #Define cómo se muestra la fecha y hora
+)
+
+# Configuración del correo
+correo_emisor = "sarasanchezz1029721608@gmail.com"
+contraseña = os.getenv("EMAIL_PASSWORD") #La contraseña se lee desde el sistema con os.getenv()
+
+if not contraseña:
+    logging.critical("No se encontró la variable de entorno EMAIL_PASSWOR…
+[2:41 pm, 21/05/2025] sara: ahí esta el codigo
+[2:41 pm, 21/05/2025] sara: pide el correo a los usuarios y les manda las alertas bien
+[2:42 pm, 21/05/2025] sara: ya no hay problema con eso
+[2:42 pm, 21/05/2025] sara: y crea dos archivos el del dataframe y el del .log
+[2:42 pm, 21/05/2025] sara: por si lo quieren probar
+[2:47 pm, 21/05/2025] :): comprendo
+[1:37 pm, 24/05/2025] sara: si alguno quiere puede subir este commit a su feature, hacerle el merge con dev para que la profesora vea que aja
+[1:37 pm, 24/05/2025] sara: igual ya le estoy agregando más cosas
+[1:38 pm, 24/05/2025] sara: import smtplib
+from email.mime.text import MIMEText
+from datetime import datetime
+import pandas as pd
+import os #Sirve para leer variables del sistema (como contraseñas).
+import logging  
+import sentry_sdk
+from dotenv import load_dotenv
+
+# Cargar variables del .env
+load_dotenv()
+
+# Inicializar Sentry
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_DSN"),
+    send_default_pii=True,
+    traces_sample_rate=1.0
+)
+
+# Configuración de logging
+logging.basicConfig(
+    filename='registro_ejecucion.log',
+    level=logging.DEBUG,  # Captura todos los niveles (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S' #Define cómo se muestra la fecha y hora
+)
+
+# Configuración del correo
+correo_emisor = "sarasanchezz1029721608@gmail.com"
+contraseña = os.getenv("EMAIL_PASSWORD") #La contraseña se lee desde el sistema con os.getenv()
+
+if not contraseña:
+    logging.critical("No se encontró la variable de entorno EMAIL_PASSWORD.")
+    print(" No se encontró la variable de entorno EMAIL_PASSWORD.")
+    exit(1) #termina el programa porque no se encntro contraseña
+else:
+    logging.info("Contraseña de correo cargada correctamente desde terminal.")
+
+def enviar_correo(alertas, correo_receptor):
+    if len(alertas) == 0:
+        logging.info("No hay alertas para enviar por correo.")
+        return #no entrega nada porque no hay alertas
+
+    mensaje = "\n".join(alertas) #Junta todas las alertas en un solo texto.
+
+    correo = MIMEText(mensaje) #MIMEText convierte un texto plano en un mensaje válido para correo
+    correo["Subject"] = "Alerta de signos vitales"
+    correo["From"] = correo_emisor
+    correo["To"] = correo_receptor
+
+    try:
+        servidor = smtplib.SMTP_SSL("smtp.gmail.com", 465) #Abre una conexión segura (SSL) con el servidor SMTP de Gmail, que es el encargado de enviar correos y 465 puerto para conexiones seguras
+        servidor.login(correo_emisor, contraseña) #autenticación
+        servidor.sendmail(correo_emisor, correo_receptor, correo.as_string()) #Envía el correo electrónico y convierte el objeto del mensaje (MIMEText) en un texto que puede enviarse por SMTP.
+        servidor.quit() #Cierra la conexión con el servidor SMTP.
+
+        logging.info(f"Correo enviado con éxito a {correo_receptor}")
+        print("Correo enviado con éxito")
+
+    #explicar excepciones de SMTP
+    except smtplib.SMTPAuthenticationError:
+        logging.error("Error de autenticación. Verifica la contraseña.")
+        print("error de autenticación. Verifica la contraseña.")
+    except smtplib.SMTPRecipientsRefused:
+        logging.error(f"El correo del destinatario {correo_receptor} fue rechazado.")
+        print("el correo del destinatario fue rechazado.")
+    except smtplib.SMTPException as e: #Captura cualquier otro error relacionado con SMTP que no sea autenticación ni rechazo de destinatario.
+        logging.error(f"Error SMTP: {e}") #as e para guardar el mensaje y luego lo muestra y lo guarda en el log.
+        print(f"error SMTP: {e}")
+    except Exception as e: #puede ser cualquier excepción
+        logging.critical(f"Error inesperado: {e}")
+        sentry_sdk.capture_exception(e)  # Capturamos excepción en Sentry también
+        print(f" error inesperado: {e}")
+
+def revisar_signo(tipo, valor):
+    if tipo == "frecuencia_cardiaca":
+        if valor < 60 or valor > 100:
+            return False, "Frecuencia cardíaca fuera de lo normal"
+    elif tipo == "temperatura":
+        if valor < 36.0 or valor > 37.5:
+            return False, "Temperatura anormal"
+    elif tipo == "frecuencia_respiratoria":
+        if valor < 12 or valor > 20:
+            return False, "Frecuencia respiratoria anormal"
+    elif tipo == "presion_arterial":
+        sistolica, diastolica = valor
+        if sistolica < 90 or sistolica > 120 or diastolica < 60 or diastolica > 80:
+            return False, "Presión arterial fuera de lo normal"
+    return True, "Todo bien"
+
+def pedir_dato(tipo): #configurar como se vera la sistolica y la diastolica
+    while True:
+        if tipo == "presion_arterial":
+            dato = input("Ingresa la presión arterial (ejemplo 110/80): ")
+            partes = dato.split("/")
+            if len(partes) == 2 and partes[0].isdigit() and partes[1].isdigit():
+                return int(partes[0]), int(partes[1])
+            else:
+                print("Formato incorrecto. Usa el formato 120/80.")
+                logging.warning("Formato incorrecto en presión arterial ingresado.")
+        else:
+            try:
+                valor = float(input(f"Ingrese el valor de {tipo.replace('_',' ')}: "))
+                if valor > 0:
+                    return valor
+                else:
+                    print("El valor debe ser mayor que 0")
+                    logging.warning(f"Valor no válido (<=0) ingresado para {tipo}: {valor}")
+            except ValueError:
+                print("Solo puedes ingresar números")
+                logging.warning(f"Valor no numérico ingresado para {tipo}")
+            # -- SENTRY AGREGADO --   
+            except Exception as e:
+                logging.error(f"Error inesperado al pedir dato: {e}")
+                sentry_sdk.capture_exception(e)  # Capturamos excepciones inesperadas aquí
+
+
+def monitorear():
+    logging.info("Inicio del monitoreo de signos vitales")
+    print("\nMONITOREO DE SIGNOS VITALES\n")
+
+    # proceso del monitoreo
+    nombre = input("Nombre del paciente: ")
+    fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S") #año-mes-dia-hora-min-seg actual
+    print(f"Fecha del monitoreo: {fecha}\n")
+    logging.info(f"Paciente: {nombre}, fecha: {fecha}")
+
+    signos = ["frecuencia_cardiaca", "temperatura", "frecuencia_respiratoria", "presion_arterial"]
+    alertas = [] #Aquí se van a guardar los mensajes de advertencia o problemas con los signos vitales
+    registros = [] #Esta lista guardará cada registro completo que se tome como el tipo de signo
+    cantidad_alertas = 0 #Esta variable cuenta cuántos signos vitales están fuera de lo normal
+
+    for signo in signos:  #recorrer cada elemento de la lista signos
+        dato = pedir_dato(signo) #llamo a la anterior funcion 
+        correcto, mensaje = revisar_signo(signo, dato)
+
+        # Mostrar estado
+        print(f"{signo.replace('_', ' ').capitalize()}: {dato}") #.replace reemplaza todos los guiones bajos por espacios
+        print("estado:", "normal" if correcto else "anormal")
+        print("mensaje:", mensaje, "\n")
+        #Por cada signo, pide el dato y revisa si está bien.
+        if not correcto:
+            alertas.append(f"{signo.replace('_', ' ').capitalize()}: {dato} - {mensaje}") ##Si el signo está mal, se agrega a la lista de alertas
+            cantidad_alertas += 1
+            logging.warning(f"Alerta detectada: {signo} - {mensaje}")
+
+        # Guardar registro para sistolica y diastolica y me devuelve una tupla con dos valores
+        if signo == "presion_arterial":
+            registros.append({   
+                "signo": "presión arterial",
+                "valor": f"{dato[0]}/{dato[1]}",
+                "estado": "normal" if correcto else "anormal",
+                "mensaje": mensaje
+            })
+        else: #Guardo el registro para los otros signos
+            registros.append({  
+                "signo": signo.replace("_", " ").capitalize(),
+                "valor": dato,
+                "estado": "normal" if correcto else "anormal",
+                "mensaje": mensaje
+            })
+
+    # Clasificación de riesgo según cuántas alertas hubo.
+    if cantidad_alertas == 0:
+        riesgo = "sin riesgo"
+    elif cantidad_alertas == 1:
+        riesgo = "riesgo leve"
+    elif cantidad_alertas == 2:
+        riesgo = "riesgo moderado"
+    else:
+        riesgo = "riesgo alto"
+
+    print(f"\nClasificación de riesgo del paciente: {riesgo}")
+    logging.info(f"Clasificación de riesgo: {riesgo}")
+
+    # Crear DataFrame
+    df = pd.DataFrame(registros)
+    df["paciente"] = nombre
+    df["fecha"] = fecha
+    df["riesgo"] = riesgo
+
+    print("\nResultados del monitoreo:\n")
+    print(df)
+    try:
+        df.to_csv("registro_signos_vitales.csv", index=False) #leer df
+        logging.info("Archivo 'registro_signos_vitales.csv' guardado.")
+        print("\nArchivo 'registro_signos_vitales.csv' guardado.")
+
+    # -- SENTRY AGREGADO --
+    except Exception as e:
+        logging.error(f"Error al guardar archivo CSV: {e}")
+        sentry_sdk.capture_exception(e)  # Capturamos excepción de guardado
+        print(f"Error al guardar archivo CSV: {e}")
+
+    # Análisis del archivo generado
+    try:
+        df_analisis = pd.read_csv("registro_signos_vitales.csv")
+
+        print("\nAnálisis de los signos vitales registrados:")
+        print("Total de signos evaluados:", len(df_analisis))
+        print("Signos fuera de lo normal:", len(df_analisis[df_analisis["estado"] == "anormal"]))
+        print("Tipos de signos más evaluados:")
+        print(df_analisis["signo"].value_counts())
+        print("Clasificación de riesgo más común:")
+        print(df_analisis["riesgo"].value_counts().head(1))
+
+        logging.info("Análisis de archivo CSV realizado con éxito.")
+    # -- SENTRY AGREGADO --
+    except Exception as e:
+        logging.error(f"Error al analizar el archivo: {e}")
+        sentry_sdk.capture_exception(e)  # Capturamos excepción en análisis
+        print(f"Error al analizar el archivo: {e}")
+
+    # Enviar correo si hay alertas
+    if cantidad_alertas > 0:
+        correo_receptor = input("Ingrese el correo al que desea enviar las alertas: ")
+        logging.info(f"Enviando correo con alertas a {correo_receptor}")
+        enviar_correo(alertas, correo_receptor)
+    else:
+        print("Todos los signos vitales están en buen estado.")
+        logging.info("No se detectaron alertas. No se envió correo.")
+
+# Ejecutar
+# -- SENTRY AGREGADO --
+def main():
+    try:
+        monitorear()
+    except Exception as e:
+        sentry_sdk.capture_exception(e)  # Captura errores no manejados globales en Sentry
+        logging.critical(f"Error crítico no manejado: {e}")
+        raise
+
+if _name_ == "_main_":
+    main()  # <-- Aquí corregí la llamada a main
