@@ -59,3 +59,41 @@ def enviar_correo(alertas, correo_receptor):
         logging.critical(f"Error inesperado: {e}")
         print(f" error inesperado: {e}")
 
+def revisar_signo(tipo, valor):
+    if tipo == "frecuencia_cardiaca":
+        if valor < 60 or valor > 100:
+            return False, "Frecuencia cardíaca fuera de lo normal"
+    elif tipo == "temperatura":
+        if valor < 36.0 or valor > 37.5:
+            return False, "Temperatura anormal"
+    elif tipo == "frecuencia_respiratoria":
+        if valor < 12 or valor > 20:
+            return False, "Frecuencia respiratoria anormal"
+    elif tipo == "presion_arterial":
+        sistolica, diastolica = valor
+        if sistolica < 90 or sistolica > 120 or diastolica < 60 or diastolica > 80:
+            return False, "Presión arterial fuera de lo normal"
+    return True, "Todo bien"
+
+def pedir_dato(tipo): #configurar como se vera la sistolica y la diastolica
+    while True:
+        if tipo == "presion_arterial":
+            dato = input("Ingresa la presión arterial (ejemplo 110/80): ")
+            partes = dato.split("/")
+            if len(partes) == 2 and partes[0].isdigit() and partes[1].isdigit():
+                return int(partes[0]), int(partes[1])
+            else:
+                print("Formato incorrecto. Usa el formato 120/80.")
+                logging.warning("Formato incorrecto en presión arterial ingresado.")
+        else:
+            try:
+                valor = float(input(f"Ingrese el valor de {tipo.replace('_',' ')}: "))
+                if valor > 0:
+                    return valor
+                else:
+                    print("El valor debe ser mayor que 0")
+                    logging.warning(f"Valor no válido (<=0) ingresado para {tipo}: {valor}")
+            except ValueError:
+                print("Solo puedes ingresar números")
+                logging.warning(f"Valor no numérico ingresado para {tipo}")
+
