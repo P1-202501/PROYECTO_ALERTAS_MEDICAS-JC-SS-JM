@@ -163,3 +163,20 @@ def monitorear():
 
     print("\n Resultados del monitoreo:\n")
     print(df)
+# Guardar archivo
+    df.to_csv("registro_signos_vitales.csv", index=False)
+    logging.info("Archivo 'registro_signos_vitales.csv' guardado.")
+    print("\n archivo 'registro_signos_vitales.csv' guardado.")
+
+    # Enviar correo si hay alertas
+    if cantidad_alertas > 0:
+        correo_receptor = input("Ingrese el correo al que desea enviar las alertas: ")
+        logging.info(f"Enviando correo con alertas a {correo_receptor}")
+        enviar_correo(alertas, correo_receptor)
+    else:
+        print("Todos los signos vitales están en buen estado.")
+        logging.info("No se detectaron alertas. No se envió correo.")
+
+# Ejecutar
+if __name__ == "__main__": #como el archivo lo estamos ejecutando directamente desde python se eejecuta la funcion
+    monitorear()
