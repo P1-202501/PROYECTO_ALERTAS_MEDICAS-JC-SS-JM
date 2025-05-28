@@ -97,3 +97,21 @@ def pedir_dato(tipo): #configurar como se vera la sistolica y la diastolica
                 print("Solo puedes ingresar números")
                 logging.warning(f"Valor no numérico ingresado para {tipo}")
 
+def monitorear():
+    logging.info("Inicio del monitoreo de signos vitales")
+    print("\n MONITOREO DE SIGNOS VITALES\n")
+
+    # proceso del monitoreo
+    nombre = input(" Nombre del paciente: ")
+    fecha = datetime.now().strftime("%Y-%m-%d %H:%M:%S") #año-mes-dia-hora-min-seg acttual
+    print(f"Fecha del monitoreo: {fecha}\n")
+    logging.info(f"Paciente: {nombre}, fecha: {fecha}")
+
+    signos = ["frecuencia_cardiaca", "temperatura", "frecuencia_respiratoria", "presion_arterial"]
+    alertas = [] #Aquí se van a guardar los mensajes de advertencia o problemas con los signos vitales
+    registros = [] #Esta lista guardará cada registro completo que se tome como el tipo de signo
+    cantidad_alertas = 0 #Esta variable cuenta cuántos signos vitales están fuera de lo normal
+
+    for signo in signos:  #recorrer cada elemento de la lista signos
+        dato = pedir_dato(signo) #llamo a la anterior funcion
+        correcto, mensaje = revisar_signo(signo, dato)
