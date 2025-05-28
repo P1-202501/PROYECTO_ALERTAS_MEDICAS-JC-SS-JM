@@ -115,3 +115,14 @@ def monitorear():
     for signo in signos:  #recorrer cada elemento de la lista signos
         dato = pedir_dato(signo) #llamo a la anterior funcion
         correcto, mensaje = revisar_signo(signo, dato)
+
+    # Mostrar estado
+        print(f"{signo.replace('_', ' ').capitalize()}: {dato}") #.replace reemplaza todos los guiones bajos por espacios
+        print("estado:", "normal" if correcto else "anormal")
+        print("mensaje:", mensaje, "\n")
+        #Por cada signo, pide el dato y revisa si está bien.
+        if not correcto:
+            alertas.append(f"{signo.replace('_', ' ').capitalize()}: {dato} - {mensaje}") ##Si el signo está mal, se agrega a la lista de alertas
+            cantidad_alertas += 1
+            logging.warning(f"Alerta detectada: {signo} - {mensaje}")
+
