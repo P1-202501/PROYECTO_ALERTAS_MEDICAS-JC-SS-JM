@@ -1,14 +1,14 @@
 # MONITOREO_DE_SIGNOS_VITALES
-###✨ Proyecto de Monitoreo de Signos Vitales ✨###
+## ✨ Proyecto de Simulación y Monitoreo en Tiempo Real ✨
 
-#"👥 Integrantes del Proyecto
+### 👥 Integrantes del Proyecto
 👨‍💻 Jacobo Minjarez
 
 👨‍💻 Jesús Carrillo
 
 👩‍💻 Sara Sánchez
 
-🌐 Introducción
+## 🌐 Introducción
 
 
 
@@ -24,14 +24,14 @@ El monitoreo de signos vitales es clave en la salud, ya que permite evaluar en t
 
 🧐 Temperatura Corporal
 
-Este proyecto desarrollará un software de simulación para visualizar y analizar estos datos de forma dinámica, permitiendo a los usuarios observar variaciones en los signos vitales en distintos escenarios clínicos.
+Este proyecto desarrollará un software de simulación para visualizar y analizar estos datos de forma dinámica, permitiendo a los usuarios observar alertas y detección de anomalías clínicas en los signos vitales en distintos escenarios clínicos.
 
 
 
 ____________________________________________________________________________________________
 
 
-⚙️ Funcionamiento
+## ⚙️ Funcionamiento del Software
 
 🔄 Generación de datos: Se crean valores representativos de signos vitales, tanto normales como anómalos.
 
@@ -39,15 +39,22 @@ ________________________________________________________________________________
 
 📲 Visualización en tiempo real: El usuario puede observar los signos vitales de manera interactiva.
 
-🤖 Guía de Uso
+🚨 Alertas: Mensajes por medio de correos cuando se detectan valores críticos.
+🛡️Robustez:Uso de manejo de excepciones para evitar caídas.
 
-🎓 Para Ingenieros Biomédicos y Desarrolladores:
+## 🤖 Guía de Uso
+
+### Para desarrolladores e ingenieros biomédicos:
+
+Clonar el repositorio y crear un entorno virtual.
+
+Configurar las variables de entorno (.env) con los datos de correo seguro.
+
+Ejecutar el archivo main.py y observar el monitoreo en consola.
 
 Asegurar el correcto funcionamiento del código en el entorno de ejecución.
 
-Modificar los parámetros de simulación para representar distintos escenarios fisiológicos.
-
-🧑‍🏥 Para Usuarios (Pacientes):
+### Para usuarios finales:
 
 Observar los valores de sus signos vitales en la pantalla.
 
@@ -55,12 +62,36 @@ Seguir las indicaciones del personal de salud en caso de recibir una alerta.
 
 Consultar con un especialista si los valores registrados presentan irregularidades frecuentes.
 
+## 🔍 Pruebas de Escritorio
+### Ejemplo de prueba de escritorio:
 
+![Escritorio 1](escritorio1.png)
+![Escritorio 2](escritorio2.png)
+
+## 🔐 Seguridad
+
+- Las contraseñas y credenciales se almacenan en un archivo .env local, usando python-dotenv y os.getenv().
+- El archivo .env está excluido del repositorio con .gitignore.
+
+## 🧪 Manejo de Errores y SMTP
+
+- Se emplea try-except para capturar errores comunes como:
+  - `smtplib.SMTPAuthenticationError`
+  - `smtplib.SMTPConnectError`
+  - `smtplib.SMTPRecipientsRefused`
+- Si el envío de correo falla, el error se registra y se continúa el programa sin bloquear al usuario.
+
+## Herramienta de monitoreo profesional en la nube:
+A continuación, se muestran capturas que ilustran el manejo de errores y la integración con Sentry:
+
+![Error con Sentry](error%20con%20sentry.png)
+
+![Error con Sentry 2](error%20con%20sentry2.png)
 
 ____________________________________________________________________________________________
 
 
-🔍 Conceptos Clave
+## 🔍 Conceptos Clave
 
 💻 Desarrollo en Python para la simulación y visualización de signos vitales.
 
@@ -68,41 +99,39 @@ ________________________________________________________________________________
 
 💡 Herramienta educativa e investigativa para mejorar la toma de decisiones en entornos médicos y tecnológicos.
 
-🎨 Nuestro Reto en el Desarrollo del Software
+## 🎨 Nuestro Reto en el Desarrollo del Software
 
 El principal desafío de este proyecto es lograr una simulación realista y eficiente del monitoreo de signos vitales. Para ello, enfrentamos los siguientes retos clave:
 
-🧬 Precisión en la simulación: Algoritmos que generen valores realistas.
+Manejo de errores SMTP: Capturar errores específicos del envío de correos para mayor robustez.
 
-♻️ Optimización del procesamiento de datos: Uso de estructuras eficientes para mejorar el rendimiento.
+Seguridad: Evitar exposición de contraseñas mediante uso correcto de .env.
 
-🚨 Generación de alertas confiables: Definir umbrales adecuados y minimizar falsos positivos o negativos.
+Pruebas de escritorio claras: Diseñar escenarios que permitan validar fácilmente el funcionamiento del sistema.
 
-⚡ Manejo de errores robusto: Implementar validaciones y mecanismos try-except.
+## 📝 Funcionalidad
 
-👁 Interfaz clara y accesible: Visualización comprensible en consola para facilitar la interpretación de los datos.
+Simulación de signos vitales: Genera valores realistas para frecuencia cardíaca, presión arterial, saturación de oxígeno y temperatura corporal.
 
-📝 Funcionalidad
+Análisis en tiempo real: Detecta desviaciones clínicas comparando los datos simulados con rangos normales.
 
-🎨 Visualización en tiempo real de signos vitales.
+Alertas automáticas: Notifica por consola y correo electrónico ante valores críticos.
 
-⚠ Sistema de alertas cuando los valores superan umbrales críticos.
+Seguridad: Protege contraseñas usando variables de entorno.
 
-⚙️ Configuración personalizada de parámetros como valores críticos y frecuencia de actualización.
+Manejo de errores: Captura excepciones específicas para mantener la estabilidad del sistema.
 
- 
-⚖️ Detección de anomalías para facilitar la toma de decisiones clínicas.
+Registro y monitoreo: Usa logging y permite integración con herramientas como Sentry.
 
-⚛️ Manejo de errores para evitar interrupciones en la ejecución del software.
+Código modular: Diseño limpio, escalable y fácil de mantener.
 
 
 
 ____________________________________________________________________________________________
 
-📖 Referencias Bibliográficas
-
-REFERENCIAS BIBLIOGRAFICAS
-Enderle JD, Bronzino JD. Introduction to Biomedical Engineering. 3rd ed. Academic Press; 2012.
-Disponible en: https://www.elsevier.com/books/introduction-to-biomedical-engineering/enderle/978-0-12-374979-6
-Webster JG. Medical Instrumentation: Application and Design. 4th ed. John Wiley & Sons; 2010.
-Disponible en: https://www.wiley.com/en-us/Medical+Instrumentation%3A+Application+and+Design%2C+4th+Edition-p-9780471676003
+## 📖 Referencias Bibliográficas
+- Python Software Foundation. (2024). [Python 3 Documentation](https://docs.python.org/3/)
+- Sentry. (2024). [Sentry for Python Docs](https://docs.sentry.io/platforms/python/)
+- smtplib — SMTP protocol client — Python Docs. (2024). [smtplib Reference](https://docs.python.org/3/library/smtplib.html)
+- pandas Documentation. (2024). [https://pandas.pydata.org/docs](https://pandas.pydata.org/docs)
+- Enderle JD, Bronzino JD. *Introduction to Biomedical Engineering*. Academic Press, 2012. **(Usado como marco conceptual para la importancia del monitoreo de signos vitales)**
