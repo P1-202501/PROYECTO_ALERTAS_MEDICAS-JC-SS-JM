@@ -1,0 +1,5 @@
+signo,valor,estado,mensaje,paciente,fecha,riesgo
+Frecuencia cardiaca,10.0,anormal,Frecuencia cardíaca fuera de lo normal,sara,2025-05-31 17:07:33,riesgo alto
+Temperatura,10.0,anormal,Temperatura anormal,sara,2025-05-31 17:07:33,riesgo alto
+Frecuencia respiratoria,30.0,anormal,Frecuencia respiratoria anormal,sara,2025-05-31 17:07:33,riesgo alto
+presión arterial,110/80,normal,Todo bien,sara,2025-05-31 17:07:33,riesgo alto
